@@ -18,9 +18,10 @@ def ui_joinexistingaccount():
 
 def ui_accountmanagement():
     print("")
-    print("A. Edit account details")
-    print("B. Edit friends")
-    print("C. Quit")
+    print("A. Account details")
+    print("B. Friends")
+    print("C. Logout")
+    print("D. Quit")
     print("")
 
 def ui_accountmanagement_editaccountdetails():
@@ -28,12 +29,12 @@ def ui_accountmanagement_editaccountdetails():
     print("")
     print("Don`t worry! You can always change your data:")
     print("")
-    print("A. Add age")
-    print("B. Add name")
+    print("A. Add a name")
+    print("B. Add an age")
     print("C. Add a bio")
     print("D. See your current information")
     print("E. DANGEROUS: Delete all your account information")
-    print("F. One menu back")
+    print("F. Go to main menu")
     print("")
 
 def ui_accountmanagement_editfriend():
@@ -41,10 +42,20 @@ def ui_accountmanagement_editfriend():
     print("")
     print("Don`t forget to get in touch with all your friends!")
     print("")
-    print("A. View all friends")
-    print("B. Add friend")
-    print("C. Remove friend (Please pay attention while typing his name: we don`t want \n to remove anyone else, right?")
-    print("D. Send messages to friend")
-    print("E. One menu back")
+    print("A. View all of your friends")
+    print("B. Add a friend")
+    print("C. Remove a friend (Please pay attention while typing his name: we don`t want \n to remove anyone else, right?)")
+    print("D. Messages")
+    print("E. Go to main menu")
     print("")
 
+def ui_messages():
+    print("________________________________________________________")
+    print("")
+    print("Ready to catch up with your friends?")
+    print("")
+    print("A. View all of your friends")
+    print("B. Write a new message")
+    print("C. View your received messages")
+    print("D. Go to main menu")
+    print("")

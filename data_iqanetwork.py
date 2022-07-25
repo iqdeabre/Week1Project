@@ -3,6 +3,7 @@
 from inspect import _empty
 from re import A
 import ui_iqanetwork
+import iqanetwork
 
 class Account_management:
     
@@ -68,11 +69,11 @@ class Account_friends:
             Account_friends.friends.remove(friend_name_remove)
             print("________________________________________________________")
             print("")
-            print("Your friend has been removed successfully!")
+            print(friend_name_remove, "has been successfully removed!")
         else:
             print("________________________________________________________")
             print("")
-            print("Imagine getting rid of the wrong friend! Please check your spelling!!")
+            print("Imagine getting rid of the wrong friend! Please check your spelling: you do not have a friend named", friend_name_remove)
 
     def show_friends():
         if len(Account_friends.friends) == 0:
@@ -82,7 +83,41 @@ class Account_friends:
         else:
             print("________________________________________________________")
             print("")
-            print("This is a list of all your current friends", Account_friends.friends)
+            print("This is a list of all your current friends:", Account_friends.friends)
+
+class Account_messages:
+    message = []
+    recipient_name = []
+    sender_name = []
+
+    def __init__(self, message, recipient_name, sender_name):
+        self.message = message
+        self.recipient_name = recipient_name
+        self.sender_name = sender_name
+
+    def send_messages():
+        sender = input("How do you like to be referred to in the message? ")
+        recipient_name_sending = input("Who will receive this message? ")
+        message_sending = input("Type in the message you would like to send: ")
+        if recipient_name_sending not in Account_friends.friends:
+            print("________________________________________________________")
+            print("")
+            print("It`s seems like you don`t have", recipient_name_sending, "as your friend!. Try adding them...")
+        else:
+            Account_messages.recipient_name.append(recipient_name_sending)
+            Account_messages.message.append(message_sending)
+            Account_messages.sender_name.append(sender)
+            print("________________________________________________________")
+            print("")
+            print("Your message to", recipient_name_sending, "has been successfully sent!")
+
+    def receive_messages():
+        if Account_management.name == Account_messages.recipient_name:
+            print("________________________________________________________")
+            print("")
+            print("You receveived the following message from", Account_messages.sender_name)
+            print(Account_messages.message)
+
 
 class Network_accounts:
     
@@ -117,23 +152,23 @@ class Network_accounts:
                             ui_iqanetwork.ui_accountmanagement_editaccountdetails()
                             decision_account_details = input("What do you want to do? ")
                 
-                            if decision_account_details == "A":
+                            if decision_account_details == "B":
                                 Account_management.add_age()
                                 print("________________________________________________________")
                                 print("")
                                 print("Age successfully added!")
                 
-                            elif decision_account_details == "B":
+                            elif decision_account_details == "A":
                                 Account_management.add_name()
                                 print("________________________________________________________")
                                 print("")
-                                print("Name added successfully!")
+                                print("Name successfully added!")
                 
                             elif decision_account_details == "C":
                                 Account_management.add_bio()
                                 print("________________________________________________________")
                                 print("")
-                                print("Bio added successfully")                
+                                print("Bio successfully added")                
                         
                             elif decision_account_details == "D":
                                 Account_management.show_info()
@@ -171,9 +206,30 @@ class Network_accounts:
                                 Account_friends.remove_friend()
                         
                             elif decision_friendsmanagement == "D":    
-                                print("________________________________________________________")
-                                print("")
-                                print("stand-by")
+                                while True:
+                                    print("________________________________________________________")
+                                    print("")
+                                    ui_iqanetwork.ui_messages()
+                                    decision_messages_mainpage = input("What should I do? ")
+                                    if decision_messages_mainpage == "A":
+                                        Account_friends.show_friends()
+
+                                    elif decision_messages_mainpage == "B":
+                                        Account_messages.send_messages()
+
+                                    elif decision_messages_mainpage == "C":
+                                        Account_messages.receive_messages
+
+                                    elif decision_messages_mainpage == "D":
+                                        print("________________________________________________________")
+                                        print("")
+                                        print("Going back to the previous menu!")
+                                        returning_to_main_account_menu()
+
+                                    else:
+                                        print("________________________________________________________")
+                                        print("")
+                                        return("Please reconsider your choice! It is invalid...")
 
                             elif decision_friendsmanagement == "E":
                                 print("________________________________________________________")
@@ -185,13 +241,20 @@ class Network_accounts:
                                 return("Please reconsider your choice! It is invalid...")
                     
                     elif decision_main_accountmanagement == "C":
-
-                            print("________________________________________________________")
-                            print("")
-                            print("See you later", joinacc)
-                            print("")
-                            print("________________________________________________________")
-                            exit()
+                        iqanetwork.return_to_main_main_menu()
+                        print("________________________________________________________")
+                        print("")
+                        print("Logging out...")
+                    
+                    
+                    
+                    elif decision_main_accountmanagement == "D":
+                        print("________________________________________________________")
+                        print("")
+                        print("See you later", joinacc)
+                        print("")
+                        print("________________________________________________________")
+                        exit()
 
                     
                 returning_to_main_account_menu()
