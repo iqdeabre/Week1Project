@@ -3,8 +3,6 @@ import ui_iqanetwork
 import data_iqanetwork
 
 if __name__ == "__main__":
-
-    def return_to_main_main_menu():
         print("________________________________________________________")
         print("")
         print("            Welcome to the IQA's social media!")
@@ -33,10 +31,7 @@ if __name__ == "__main__":
                 break
 
             else:
-                print("________________________________________________________")
                 print("")
                 print("Please insert a valid input!")
 
             decision1 = ui_iqanetwork.ui_initialmenu()
-
-    return_to_main_main_menu()

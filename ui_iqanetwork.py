@@ -3,7 +3,7 @@ def ui_initialmenu():
     print("")
     print("Please choose an option to continue:")
     print("A. Create a new account")
-    print("B. Join an existing account")
+    print("B. Join your account")
     print("C. Quit")
     print("")
     return input("Type in your choice: ")
@@ -20,8 +20,7 @@ def ui_accountmanagement():
     print("")
     print("A. Account details")
     print("B. Friends")
-    print("C. Logout")
-    print("D. Quit")
+    print("C. Quit")
     print("")
 
 def ui_accountmanagement_editaccountdetails():
@@ -50,8 +49,6 @@ def ui_accountmanagement_editfriend():
     print("")
 
 def ui_messages():
-    print("________________________________________________________")
-    print("")
     print("Ready to catch up with your friends?")
     print("")
     print("A. View all of your friends")

@@ -1,9 +1,8 @@
-#V1
-#Coloque aqui as classes e cada funcão respectiva a cada classe
 from inspect import _empty
 from re import A
 import ui_iqanetwork
 import iqanetwork
+
 
 class Account_management:
     
@@ -99,6 +98,7 @@ class Account_messages:
         sender = input("How do you like to be referred to in the message? ")
         recipient_name_sending = input("Who will receive this message? ")
         message_sending = input("Type in the message you would like to send: ")
+
         if recipient_name_sending not in Account_friends.friends:
             print("________________________________________________________")
             print("")
@@ -110,14 +110,31 @@ class Account_messages:
             print("________________________________________________________")
             print("")
             print("Your message to", recipient_name_sending, "has been successfully sent!")
-
+    
     def receive_messages():
         if Account_management.name == Account_messages.recipient_name:
             print("________________________________________________________")
             print("")
             print("You receveived the following message from", Account_messages.sender_name)
             print(Account_messages.message)
+            print("________________________________________________________")
+            print("")
+            delete_received_message = input("Would you like to delete this message (Y/N): ")
+            if delete_received_message == "Y":
+                Account_messages.message.clear()
+                Account_messages.recipient_name.clear()
+                Account_messages.sender_name.clear()
+                print("________________________________________________________")
+                print("")
+                print("Your messages were successfully deleted!")
+            else:
+                pass
 
+        else:
+            print("________________________________________________________")
+            print("")
+            print("You don`t have any new messages!")
+        
 
 class Network_accounts:
     
@@ -128,7 +145,6 @@ class Network_accounts:
     def create_account():    
         createacc = input("Type in your username: ")
         Network_accounts.existing_accounts.append(createacc)
-        print(Network_accounts.existing_accounts)
 
     def verify_account():
         joinacc = input("Type in your username: ")
@@ -137,7 +153,6 @@ class Network_accounts:
             while True:
                 
                 def returning_to_main_account_menu():
-            
 
                     print("________________________________________________________")
                     print("")
@@ -218,7 +233,7 @@ class Network_accounts:
                                         Account_messages.send_messages()
 
                                     elif decision_messages_mainpage == "C":
-                                        Account_messages.receive_messages
+                                        Account_messages.receive_messages()
 
                                     elif decision_messages_mainpage == "D":
                                         print("________________________________________________________")
@@ -239,16 +254,8 @@ class Network_accounts:
                 
                             else:
                                 return("Please reconsider your choice! It is invalid...")
-                    
+                            
                     elif decision_main_accountmanagement == "C":
-                        iqanetwork.return_to_main_main_menu()
-                        print("________________________________________________________")
-                        print("")
-                        print("Logging out...")
-                    
-                    
-                    
-                    elif decision_main_accountmanagement == "D":
                         print("________________________________________________________")
                         print("")
                         print("See you later", joinacc)
